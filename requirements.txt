@@ -1,0 +1,10 @@
+albumentations==1.2.0
+numpy==1.23.0
+Pillow==9.4.0
+pytorch_lightning==1.7.0
+pytorch_msssim==0.2.1
+pytorch_toolbelt==0.4.4
+PyYAML==6.0
+torch==1.13.1
+torchmetrics==0.9.1
+torchvision==0.10.0

@@ -1,0 +1,37 @@
+# Dataset Parameters
+dataset: pascal_voc_unlabelled
+dataset_args:
+  batch_size: 32 # per-gpu
+
+# Augmentation Parameters
+augmentation: reconstruction_coarse_cutout
+augmentation_args:
+  augmentation_steps:
+    - HorizontalFlip
+    - ColorJitter
+  normalization:
+    # Normalization values generated from pascal_voc_unlabelled
+    mean: [0.45286129, 0.43170348, 0.39989259]
+    std: [0.44426655, 0.46648413, 0.48871749]
+  resize: 256
+
+# Model Parameters
+model: reconstruction
+model_args:
+  underlying_model: resunet34
+  underlying_model_args:
+    num_classes: 3 # rgb image
+    ignore_class: null
+    pretrain: false
+
+# Optimizer Parameters (Adam)
+optimizer_args:
+  lr: 3.0e-3
+
+# Scheduler Parameters (Cosine Annealing)
+scheduler_args:
+  min_multiplier: 1.0e-2
+  warmup_epochs: 10
+
+# Training Duration
+epochs: 1000
